@@ -1,14 +1,6 @@
-FROM golang:1.4.2
+FROM golang:1.6.0
+MAINTAINER qwding carlding123@163.com
 
-MAINTAINER carl 
-
-ENV PATH $PATH:$GOPATH/bin
-
-ADD github.com /go/src/github.com
-
-ADD build.sh /build.sh
-
-RUN chmod +x /build.sh
-
-RUN /build.sh 
-
+# Install beego & bee
+RUN go get -u github.com/astaxie/beego
+RUN go get -u github.com/beego/bee
